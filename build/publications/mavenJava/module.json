@@ -1,0 +1,122 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "io.github.fudge",
+    "module": "ForgedFlowerLoom",
+    "version": "1.0-rc1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.1.1",
+      "buildId": "sy7d7ht5srdunpsfan6wsfrk2y"
+    }
+  },
+  "variants": [
+    {
+      "name": "apiElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-api",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "files": [
+        {
+          "name": "ForgedFlowerLoom-1.0-rc1.jar",
+          "url": "ForgedFlowerLoom-1.0-rc1.jar",
+          "size": 14405,
+          "sha512": "397656204ef93c6486d84aac55a12e134002de2e635690875c6de7b27c31d08544c47add88221815ce1d383cd1706396160f3c6190bbebdcd36e92662269d3be",
+          "sha256": "d1183782e7f614d214539046f2ee8d3d3da4b7e68faddd4b7b367cbae07cc3f4",
+          "sha1": "9e8a91d75fb36db6e58de4bc9daf2ef8ac5db24b",
+          "md5": "a94bd80e1ed126e9f86e6fed0de2782c"
+        }
+      ]
+    },
+    {
+      "name": "runtimeElements",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.jvm.version": 8,
+        "org.gradle.libraryelements": "jar",
+        "org.gradle.usage": "java-runtime",
+        "org.jetbrains.kotlin.localToProject": "public",
+        "org.jetbrains.kotlin.platform.type": "jvm"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.3.72"
+          }
+        },
+        {
+          "group": "net.fabricmc",
+          "module": "fabric-loom",
+          "version": {
+            "requires": "0.4.decompilers.local"
+          }
+        },
+        {
+          "group": "io.github.fudge",
+          "module": "forgedflower",
+          "version": {
+            "requires": "1.5.380+0359124"
+          }
+        },
+        {
+          "group": "org.jetbrains",
+          "module": "intellij-fernflower",
+          "version": {
+            "requires": "1.2.0.15"
+          }
+        },
+        {
+          "group": "net.fabricmc",
+          "module": "tiny-mappings-parser",
+          "version": {
+            "requires": "0.2.2.14"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "ForgedFlowerLoom-1.0-rc1.jar",
+          "url": "ForgedFlowerLoom-1.0-rc1.jar",
+          "size": 14405,
+          "sha512": "397656204ef93c6486d84aac55a12e134002de2e635690875c6de7b27c31d08544c47add88221815ce1d383cd1706396160f3c6190bbebdcd36e92662269d3be",
+          "sha256": "d1183782e7f614d214539046f2ee8d3d3da4b7e68faddd4b7b367cbae07cc3f4",
+          "sha1": "9e8a91d75fb36db6e58de4bc9daf2ef8ac5db24b",
+          "md5": "a94bd80e1ed126e9f86e6fed0de2782c"
+        }
+      ]
+    },
+    {
+      "name": "sourcesElements",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "ForgedFlowerLoom-1.0-rc1-sources.jar",
+          "url": "ForgedFlowerLoom-1.0-rc1-sources.jar",
+          "size": 3075,
+          "sha512": "8b735dc1d31127897499a897f82bb9659581c130398d940cca0e0f7abd6a92b91857d77920dae3f8fc00ea801bafb9ae735c883031bfa9e9f96f686ff8209cb5",
+          "sha256": "bf2bdd7295ab66d5849c495d398b46a81e12394e5a68fd27d7075c0b20bdc029",
+          "sha1": "de07dc7afd617434fc7d94189ce71022f5a0c5ba",
+          "md5": "24b2336fce4a3c9eda84d6510c4e1921"
+        }
+      ]
+    }
+  ]
+}
