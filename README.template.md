@@ -1,7 +1,9 @@
 # ForgedFlowerLoom
 
 ForgedFlowerLoom allows decompiling Minecraft sources in Loom with ForgedFlower instead of FabricFlower.
+
 ForgedFlower (a fork of ForgeFlower) can produce significantly better output than FabricFlower in some cases and reduces compilation errors in resulting code.
+
 A downside is that ForgedFlower is not multithreaded.
 
 ## Usage
