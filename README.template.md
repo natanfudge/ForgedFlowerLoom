@@ -5,6 +5,12 @@ ForgedFlower (a fork of ForgeFlower) can produce significantly better output tha
 A downside is that ForgedFlower is not multithreaded.
 
 ## Usage
+First, make certain you are using **at least** `Loom 0.4`:
+```groovy
+    plugins {
+    	id 'fabric-loom' version '0.4-SNAPSHOT'
+    }
+```
 
 Place **at the very top of your `build.gradle`, above `plugins`**:
 
