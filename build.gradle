@@ -11,11 +11,7 @@ archivesBaseName = "forgedflowerloom"
 repositories {
     mavenCentral()
     maven { url = "https://maven.fabricmc.net/" }
-    //TODO: replace with jcenter
-    maven {
-        url = "https://dl.bintray.com/natanfudge/libs"
-    }
-//    jcenter()
+    jcenter()
 }
 
 
@@ -44,6 +40,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
+            archivesBaseName = "forgedflowerloom"
         }
     }
 }
