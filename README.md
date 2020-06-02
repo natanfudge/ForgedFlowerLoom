@@ -12,7 +12,7 @@ Place **at the very top of your `build.gradle`, above `plugins`**:
 buildscript {
    repositories { jcenter() }
    dependencies {
-       classpath("io.github.fudge:forgedflowerloom:1.0.0-rc4")
+       classpath("io.github.fudge:forgedflowerloom:1.0.0")
    }
 }
 ```
