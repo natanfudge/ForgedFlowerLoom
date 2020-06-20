@@ -1,4 +1,5 @@
-import fudge.ForgedFlowerTinyJavadocProvider
+package fudge
+
 import fudge.forgedflower.api.IFabricJavadocProvider
 import fudge.forgedflower.main.DecompilerContext
 import fudge.forgedflower.main.Fernflower
@@ -27,22 +28,23 @@ class ForgedFlowerForkedFFExecutor : AbstractForkedFFExecutor() {
             lineMap: File,
             mappings: File
     ) {
-        options[IFabricJavadocProvider.PROPERTY_NAME] =
-                ForgedFlowerTinyJavadocProvider(mappings)
+        options[IFabricJavadocProvider.PROPERTY_NAME] = ForgedFlowerTinyJavadocProvider(mappings)
 
-        val saver = ThreadSafeResultSaver({ output }) { lineMap }
+        val threads = (options[IFernflowerPreferences.THREADS] as String).toInt()
+
+        val saver = ThreadSafeResultSaver({ output }, {lineMap})
         val logger = ThreadIDFFLogger()
         val ff = Fernflower(
                 IBytecodeProvider { ext, int -> FernFlowerUtils.getBytecode(ext, int) },
-                ForgedFlowerThreadSafeResultSaver(saver), options,
-                ForgedFlowerThreadIDFFLogger(logger)
+            ForgedFlowerThreadSafeResultSaver(saver), options,
+            ForgedFlowerThreadIDFFLogger(logger),threads
         )
 
         for (library in libraries) {
-            ff.structContext.addSpace(library, false)
+            ff.addLibrary(library)
         }
 
-        ff.structContext.addSpace(input, true)
+        ff.addSource(input)
         ff.decompileContext()
     }
 

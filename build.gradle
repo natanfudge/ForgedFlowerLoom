@@ -1,7 +1,8 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.72'
     id "maven-publish"
-    id "com.jfrog.bintray" version "1.8.5"
+    id 'java-gradle-plugin'
+    id "com.gradle.plugin-publish" version "0.11.0"
 }
 
 group 'io.github.fudge'
@@ -15,11 +16,11 @@ repositories {
 }
 
 
+
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
     implementation "net.fabricmc:fabric-loom:0.4.24"
-    implementation gradleApi()
-    implementation 'io.github.fudge:forgedflower:1.6.3'
+    implementation 'io.github.fudge:forgedflower:1.7.0'
     implementation('org.jetbrains:intellij-fernflower:1.2.0.15')
     implementation "net.fabricmc:tiny-mappings-parser:0.2.2.14"
 }
@@ -45,22 +46,45 @@ publishing {
     }
 }
 
-bintray {
-    user = project.hasProperty('bintray_user') ? project.property('bintray_user') : ""
-    key = project.hasProperty('bintray_api_key') ? project.property('bintray_api_key') : ""
-    publications = ["mavenJava"]
-    publish = true //[Default: false] Whether version should be auto published after an upload
-    pkg {
-        repo = "libs"
-        name = "ForgedFlowerLoom"
-        licenses = ["MIT"]
-        version {
-            name = project.version
-            released = new Date()
+gradlePlugin {
+    plugins {
+        ffLoomPlugin {
+            id = 'com.github.fudge.forgedflowerloom'
+            implementationClass = 'fudge.FFLoomPlugin'
         }
     }
-
 }
+
+pluginBundle {
+    website = 'https://github.com/natanfudge/ForgedFlowerLoom'
+    vcsUrl = 'https://github.com/natanfudge/ForgedFlowerLoom'
+    description = 'Provides the ForgedFlower decompiler to Fabric-Loom environments'
+    tags = ['fabric', 'decompilers','fabric-loom']
+
+    plugins {
+        ffLoomPlugin {
+            // id is captured from java-gradle-plugin configuration
+            displayName = 'ForgedFlowerLoom'
+        }
+    }
+}
+
+//bintray {
+//    user = project.hasProperty('bintray_user') ? project.property('bintray_user') : ""
+//    key = project.hasProperty('bintray_api_key') ? project.property('bintray_api_key') : ""
+//    publications = ["mavenJava"]
+//    publish = true //[Default: false] Whether version should be auto published after an upload
+//    pkg {
+//        repo = "libs"
+//        name = "ForgedFlowerLoom"
+//        licenses = ["MIT"]
+//        version {
+//            name = project.version
+//            released = new Date()
+//        }
+//    }
+//
+//}
 
 
 task updateTemplate(type: Copy) {
@@ -77,4 +101,4 @@ task updateTemplate(type: Copy) {
     destinationDir = rootDir
 }
 
-tasks.bintrayUpload.dependsOn(tasks.updateTemplate)
+tasks.publishPlugins.dependsOn(tasks.updateTemplate)
